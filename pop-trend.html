@@ -32,8 +32,8 @@ d3.csv("../pop-trend.csv", function(data) {
 
   // Add X axis --> it is a date format
   var x = d3.scaleLinear()
-    .domain(d3.extent(data, function(d) { return d.Year; }))
-    .range([ 1970, width ]);
+    .domain(d3.extent(data, function(d) { return +d.Year; }))
+    .range([ 0, width ]);
   svg.append("g")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x).ticks(5));
