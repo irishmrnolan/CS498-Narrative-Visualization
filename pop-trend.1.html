@@ -111,7 +111,8 @@ d3.csv("../pop-trend.csv", function(data) {
     .domain([0, d3.max(data, function(d) { return +d.Pop; })])
     .range([ height, 0 ]);
   svg.append("g")
-    .call(d3.axisLeft(y));
+    .call(d3.axisLeft(y))
+	.append("circle").attr("cx",200).attr("cy",130).attr("r", 6).style("fill", "#69b3a2");
 
   // color palette
   var res = sumstat.map(function(d){ return d.key }) // list of group names
@@ -132,7 +133,7 @@ d3.csv("../pop-trend.csv", function(data) {
             .x(function(d) { return x(d.Year); })
             .y(function(d) { return y(+d.Pop); })
             (d.values)
-	   .append("circle").attr("cx",200).attr("cy",130).attr("r", 6).style("fill", "#69b3a2")
+	   
 	})
 })
 
