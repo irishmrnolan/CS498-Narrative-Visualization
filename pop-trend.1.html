@@ -132,19 +132,6 @@ d3.csv("../pop-trend.csv", function(data) {
             .x(function(d) { return x(d.Year); })
             .y(function(d) { return y(+d.Pop); })
             (d.values)
-	
-  var lineLegend = svg.selectAll(".lineLegend").data(data)
-     .enter().append("g")
-     .attr("class","lineLegend")
-     .attr("transform", function (d,i) {
-      position = width - margin.right
-            return "translate(" + position + "," + (i*20)+")";
-       
-  lineLegend.append("text").text(function (d) {return d;})
-     .attr("transform", "translate(15,9)"); //align texts with boxes
-  lineLegend.append("rect")
-     .attr("fill", function (d, i) {return color(d); })
-     .attr("width", 10).attr("height", 10);
 
 	})
 })
