@@ -133,7 +133,7 @@ d3.csv("../pop-trend.csv", function(data) {
             .y(function(d) { return y(+d.Pop); })
             (d.values)
 	
-  var lineLegend = svg.selectAll(".lineLegend").data(countries)
+  var lineLegend = svg.selectAll(".lineLegend").data(data)
      .enter().append("g")
      .attr("class","lineLegend")
      .attr("transform", function (d,i) {
