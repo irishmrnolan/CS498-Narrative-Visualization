@@ -76,7 +76,34 @@ a.scene2:hover, a.scene2:active {
         </p>
     </div>
 	
-<script>	
+<script>
+var margin = {top: 15, right: 60, bottom: 30, left: 50};
+        width = 1000 - margin.left - margin.right,
+        height = 547 - margin.top - margin.bottom;
+
+        var x0 = d3.scaleBand()
+            .rangeRound([0, width]);
+
+        var x1 = d3.scaleBand();
+
+        var y = d3.scaleLinear()
+            .range([height, 0]);
+
+        var xAxis = d3.axisBottom()
+            .scale(x0)
+            .tickSize(0);
+
+        var yAxis = d3.axisLeft()
+            .scale(y);
+
+        var color = d3.scaleOrdinal(["#92c5de","#f4a582"])
+
+        var svg = d3.select('#chart').append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+          .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+			
 //Read the data
 d3.csv("../pop-trend.csv", function(data) {
 
