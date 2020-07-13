@@ -133,6 +133,26 @@ d3.csv("../pop-trend.csv", function(data) {
             .y(function(d) { return y(+d.Pop); })
             (d.values)
 	
+const legend = svg
+  .append("g")
+  .attr("class", "legend")
+  .attr("transform", `translate(50, 10)`)
+  .style("font-size", "12px");
+
+Object.keys(colors).forEach((color, i) => {
+  legend
+    .append("text")
+    .attr("y", `${i}em`)
+    .attr("x", "1em")
+    .text(colors[color].name);
+
+  legend
+    .append("circle")
+    .attr("cy", `${i - 0.25}em`)
+    .attr("cx", 0)
+    .attr("r", "0.4em")
+    .attr("fill", colors[color].hex);
+});
 
 	})
 })
