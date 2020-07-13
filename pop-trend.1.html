@@ -132,10 +132,7 @@ d3.csv("../pop-trend.csv", function(data) {
             .x(function(d) { return x(d.Year); })
             .y(function(d) { return y(+d.Pop); })
             (d.values)
-		.append("circle").attr("cx",200).attr("cy",130).attr("r", 6).style("fill", "#69b3a2")
-		.append("circle").attr("cx",200).attr("cy",160).attr("r", 6).style("fill", "#404080")
-		.append("text").attr("x", 220).attr("y", 130).text("variable A").style("font-size", "15px").attr("alignment-baseline","middle")
-		.append("text").attr("x", 220).attr("y", 160).text("variable B").style("font-size", "15px").attr("alignment-baseline","middle")
+	
 
 	})
 })
