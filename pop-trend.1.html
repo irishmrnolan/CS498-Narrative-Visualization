@@ -5,7 +5,7 @@
 a.button1:link, a.button1:visited {
   width:60px;
   height:20px;
-  background-color: #ff6961;
+  background-color: #000000;
   color: white;
   padding: 10px 15px;
   text-align: center;
@@ -14,7 +14,7 @@ a.button1:link, a.button1:visited {
 }
 
 a.button1:hover, a.button1:active {
-  background-color: red;
+  background-color: #70C9CF;
 }
 
 a.scene1:link, a.scene1:visited {
@@ -64,39 +64,24 @@ a.scene2:hover, a.scene2:active {
     <center>
         <p>
             <font size="6" face="Arial Black">
-                Life Expectancy By Gender in 2012
+                Population Trends 1970-2015
             </font>
         </p>
     </center>
     <div class="chart" id="chart">
         <p>
             <font size="4" face="Arial">
-                Comparing the life expectancy between male and female in all ten selected coutries, light blue represents life expectancy for male and light orange represents life expectancy for female. Interestingly, all female life expectancy is higher than the male life expectancy in the same country. And also note that Russian has the largest life expectancy difference by gender.
+               Notes here
             </font>
         </p>
     </div>
 	
 <script>
-var margin = {top: 15, right: 60, bottom: 30, left: 50};
+var margin = {top: 15, right: 60, bottom: 30, left: 30};
         width = 1000 - margin.left - margin.right,
         height = 547 - margin.top - margin.bottom;
 
-        var x0 = d3.scaleBand()
-            .rangeRound([0, width]);
-
-        var x1 = d3.scaleBand();
-
-        var y = d3.scaleLinear()
-            .range([height, 0]);
-
-        var xAxis = d3.axisBottom()
-            .scale(x0)
-            .tickSize(0);
-
-        var yAxis = d3.axisLeft()
-            .scale(y);
-
-        var color = d3.scaleOrdinal(["#92c5de","#f4a582"])
+        
 
         var svg = d3.select('#chart').append("svg")
             .attr("width", width + margin.left + margin.right)
