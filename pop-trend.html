@@ -27,7 +27,7 @@ d3.csv("../pop-mvf.csv", function(data) {
 
   // group the data: I want to draw one line per group
   var sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
-    .key(function(d) { return d.country_name;})
+    .key(function(d) { return d.country;})
     .entries(data);
 
   // Add X axis --> it is a date format
