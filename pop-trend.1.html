@@ -112,7 +112,7 @@ d3.csv("../pop-trend.csv", function(data) {
     .range([ height, 0 ]);
   svg.append("g")
     .call(d3.axisLeft(y))
-	.append("circle").attr("cx",150).attr("cy",330).attr("r", 6).style("fill", "#000000");
+	.append("circle").attr("cx",30).attr("cy",30).attr("r", 3).style("fill", "#000000");
 
   // color palette
   var res = sumstat.map(function(d){ return d.key }) // list of group names
