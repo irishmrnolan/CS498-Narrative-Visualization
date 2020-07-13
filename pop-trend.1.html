@@ -132,6 +132,12 @@ d3.csv("../pop-trend.csv", function(data) {
             .x(function(d) { return x(d.Year); })
             .y(function(d) { return y(+d.Pop); })
             (d.values)
+			
+	legend = svg.append("g")
+    .attr("class","legend")
+    .attr("transform","translate(50,30)")
+    .style("font-size","12px")
+    .call(d3.legend)
         })
 
 })
