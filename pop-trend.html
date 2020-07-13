@@ -49,7 +49,7 @@ d3.csv("../pop-mvf.csv", function(data) {
   var res = sumstat.map(function(d){ return d.key }) // list of group names
   var color = d3.scaleOrdinal()
     .domain(res)
-    .range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628','#f781bf','#999999'])
+    .range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628','#f781bf','#999999', '#000000'])
 
   // Draw the line
   svg.selectAll(".line")
