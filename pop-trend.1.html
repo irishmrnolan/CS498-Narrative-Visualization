@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+
+a.button1:link, a.button1:visited {
+  width:60px;
+  height:20px;
+  background-color: #ff6961;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a.button1:hover, a.button1:active {
+  background-color: red;
+}
+
+a.scene1:link, a.scene1:visited {
+  color: black;
+  text-decoration: None;
+}
+
+a.scene1:hover, a.scene1:active {
+  text-decoration:underline;
+}
+
+a.scene2:link, a.scene2:visited {
+  color: gray;
+  text-decoration: None;
+}
+
+a.scene2:hover, a.scene2:active {
+  text-decoration:underline;
+}
+
+.axis path,.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.chart {
+    max-width: 950px;
+    min-width: 304px;
+    margin: 0 auto;
+    background-color: #edebe4;
+}
+
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <title> Page2-3 </title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+</head>
+<body bgcolor="#F0F0E1">
+    <center>
+        <p>
+            <font size="6" face="Arial Black">
+                Life Expectancy By Gender in 2012
+            </font>
+        </p>
+    </center>
+    <div class="chart" id="chart">
+        <p>
+            <font size="4" face="Arial">
+                Comparing the life expectancy between male and female in all ten selected coutries, light blue represents life expectancy for male and light orange represents life expectancy for female. Interestingly, all female life expectancy is higher than the male life expectancy in the same country. And also note that Russian has the largest life expectancy difference by gender.
+            </font>
+        </p>
+    </div>
+	
+<script>	
+//Read the data
+d3.csv("../pop-trend.csv", function(data) {
+
+  // group the data: I want to draw one line per group
+  var sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
+    .key(function(d) { return d.Country;})
+    .entries(data);
+
+  // Add X axis --> it is a date format
+  var x = d3.scaleLinear()
+    .domain([1970, d3.max(data, function(d) { return +d.Year; })])
+    .range([ 0, width ]);
+  svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x).ticks(5));
+
+  // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([0, d3.max(data, function(d) { return +d.Pop; })])
+    .range([ height, 0 ]);
+  svg.append("g")
+    .call(d3.axisLeft(y));
+
+  // color palette
+  var res = sumstat.map(function(d){ return d.key }) // list of group names
+  var color = d3.scaleOrdinal()
+    .domain(res)
+    .range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628','#f781bf','#999999', '#000000'])
+
+  // Draw the line
+  svg.selectAll(".line")
+      .data(sumstat)
+      .enter()
+      .append("path")
+        .attr("fill", "none")
+        .attr("stroke", function(d){ return color(d.key) })
+        .attr("stroke-width", 1.5)
+        .attr("d", function(d){
+          return d3.line()
+            .x(function(d) { return x(d.Year); })
+            .y(function(d) { return y(+d.Pop); })
+            (d.values)
+        })
+
+})
+
+</script>	
+	
+<center>
+        <p></p>
+        <a class="button1" href="page1.html" style="margin-right: 200px">Previous</a>
+        <font size="3" face="Arial Black">
+                <a class="scene2" href="page2-1.html">Scene 2-1</a>
+                |
+                <a class="scene2" href="page2-2.html">Scene 2-2</a>
+                |
+                <a class="scene1" href="page2-3.html">Scene 2-3</a>
+            </font>
+        <a class="button1" href="page3-1.html" style="margin-left: 200px" >Next</a>
+    </center>
+</body>
+</html>
