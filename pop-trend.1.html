@@ -197,19 +197,19 @@ d3.csv("../pop-trend.csv", function(data) {
 	const annotations = [
         {
           note: {
-            title: "Life expectancy decreases while GDP per Capita increases",
+            title: "Poland has the smallest increase in population.",
             wrap: 150
           },
           connector: {
             end: "arrow"
           },
-          x: 430,
-          y: 470,
+          x: 860,
+          y: 235,
           dx: -150,
           dy: -20
         },{
           note: {
-            title: "GDP per Capita increases as life expectancy increases.",
+            title: "Mexico has the largest increase in population.",
             wrap: 150
           },
           connector: {
@@ -217,8 +217,8 @@ d3.csv("../pop-trend.csv", function(data) {
             type: "curve",
             points: [[-35, 70]]
           },
-          x: 578,
-          y: 174,
+          x: 378,
+          y: 74,
           dx: -80,
           dy: 130
         }].map(function(d){ d.color = "#ff6961"; return d})
