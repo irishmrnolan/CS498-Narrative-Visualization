@@ -192,6 +192,44 @@ d3.csv("../pop-trend.csv", function(data) {
               .style("text-anchor", "end")
               .style('font-weight','bold')
               .text("Population");
+			  
+			  
+	const annotations = [
+        {
+          note: {
+            title: "Life expectancy decreases while GDP per Capita increases",
+            wrap: 150
+          },
+          connector: {
+            end: "arrow"
+          },
+          x: 430,
+          y: 470,
+          dx: -150,
+          dy: -20
+        },{
+          note: {
+            title: "GDP per Capita increases as life expectancy increases.",
+            wrap: 150
+          },
+          connector: {
+            end: "arrow",
+            type: "curve",
+            points: [[-35, 70]]
+          },
+          x: 578,
+          y: 174,
+          dx: -80,
+          dy: 130
+        }].map(function(d){ d.color = "#ff6961"; return d})
+
+    const makeAnnotations = d3.annotation()
+         .type(d3.annotationLabel)
+         .annotations(annotations)
+
+    svg .append("g")
+        .attr("class", "annotation-group")
+        .call(makeAnnotations)
 })
 
 </script>	
