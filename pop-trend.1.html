@@ -109,7 +109,7 @@ d3.csv("../pop-trend.csv", function(data) {
 
  var color = d3.scaleOrdinal()
     .domain(res)
-    .range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628','#f781bf','#999999', '#000000']);
+    .range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628','#f781bf','#999999', '#000000'])
   // Add Y axis
   var y = d3.scaleLinear()
     .domain([0, d3.max(data, function(d) { return +d.Pop; })])
