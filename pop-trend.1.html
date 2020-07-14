@@ -135,6 +135,28 @@ d3.csv("../pop-trend.csv", function(data) {
             .y(function(d) { return y(+d.Pop); })
             (d.values)
 	   
+	   
+	 var country = {
+            'Brazil': {column: 'Brazil'},
+            'China': {column: 'China'},
+            'Germany': {column: 'Germany'},
+            'India': {column: 'India'},
+            'Iraq': {column: 'Iraq'},
+            'Japan': {column: 'Japan'},
+            'Russian': {column: 'RussianFederation'},
+            'Switzerland': {column: 'Switzerland'},
+            'United States': {column: 'UnitedStates'},
+            'Zimbabwe': {column: 'Zimbabwe'}
+          }
+
+      var legend = d3.select('#chart').append('div').attr("class", "legend");
+      console.log(country)
+      for (var y  in country) {
+            series = legend.append('div');
+            series.append('div').attr("class", "series-marker").style("background-color", color(y));
+            series.append('p').text(y);
+            country[y].legend = series;
+          }   
 	})
 	
 	svg.append("text")             
