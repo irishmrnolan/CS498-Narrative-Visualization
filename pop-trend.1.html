@@ -105,7 +105,6 @@ d3.csv("../pop-trend.csv", function(data) {
     .range([ 0, width ]);
   svg.append("g")
     .attr("transform", "translate(0," + height + ")")
-	.attr("stroke-width", '2px')
     .call(d3.axisBottom(x).ticks(10));
 	
 	
