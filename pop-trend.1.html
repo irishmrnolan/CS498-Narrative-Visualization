@@ -136,7 +136,7 @@ d3.csv("../pop-trend.csv", function(data) {
             (d.values)
 	   
 	   
-	 var country = {
+	var country = {
             'Brazil': {column: 'Brazil'},
             'China': {column: 'China'},
             'Germany': {column: 'Germany'},
@@ -149,13 +149,13 @@ d3.csv("../pop-trend.csv", function(data) {
             'Zimbabwe': {column: 'Zimbabwe'}
           }
 
-      var legend = d3.select('#chart').append('div').attr("class", "legend");
-      console.log(country)
-      for (var y  in country) {
-            series = legend.append('div');
-            series.append('div').attr("class", "series-marker").style("background-color", color(y));
-            series.append('p').text(y);
-            country[y].legend = series;
+    var legend = d3.select('#chart').append('div').attr("class", "legend");
+    console.log(country)
+    for (var y  in country) {
+        series = legend.append('div');
+        series.append('div').attr("class", "series-marker").style("background-color", color(y));
+        series.append('p').text(y);
+        country[y].legend = series;
           }   
 	})
 	
