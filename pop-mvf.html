@@ -116,11 +116,11 @@ d3.csv("../pop-mvf.csv", function(data) {
     .range([ height, 0 ]);
   svg.append("g")
     .call(d3.axisLeft(y))
-	.append("rect").attr("x", 400).attr("y",508).attr("width", 20).attr("height", 20).style("fill", '#F16397')
+	.append("rect").attr("x", 380).attr("y",500).attr("width", 20).attr("height", 20).style("fill", '#F16397')
   svg.append("g")
-	.append("text").attr("x", 417).attr("y", 510).text("Female").style("font-size", "15px").attr("alignment-baseline","middle")
+	.append("text").attr("x", 400).attr("y", 510).text("Female").style("font-size", "15px").attr("alignment-baseline","middle")
   svg.append("g")
-	.append("rect").attr("cx", 450).attr("cy",508).attr("width", 20).attr("height", 20).style("fill", '#249AF1')
+	.append("rect").attr("x", 450).attr("y",500).attr("width", 20).attr("height", 20).style("fill", '#249AF1')
   svg.append("g")
 	.append("text").attr("x", 467).attr("y", 510).text("Male").style("font-size", "15px").attr("alignment-baseline","middle");
 	
@@ -183,10 +183,10 @@ d3.csv("../pop-mvf.csv", function(data) {
           connector: {
             end: "arrow"
           },
-          x: 160,
-          y: 110,
-          dx: -50,
-          dy: -110
+          x: 150,
+          y: 140,
+          dx: -25,
+          dy: -25
         },{
           note: {
             title: "Mexico has the largest increase in population.",
