@@ -112,7 +112,7 @@ d3.csv("../pop-mvf.csv", function(data) {
 	
    // Add Y axis
   var y = d3.scaleLinear()
-    .domain([0, 200000000])
+    .domain([0, 175000000])
     .range([ height, 0 ]);
   svg.append("g")
     .call(d3.axisLeft(y));
@@ -128,7 +128,7 @@ d3.csv("../pop-mvf.csv", function(data) {
    // color palette = one color per subgroup
   var color = d3.scaleOrdinal()
     .domain(subgroups)
-    .range(['#e41a1c','#377eb8'])	
+    .range(['#F16397','#249AF1'])	
   
 
   // Show the bars
