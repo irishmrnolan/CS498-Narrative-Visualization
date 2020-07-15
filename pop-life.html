@@ -180,7 +180,7 @@ d3.csv("../pop-life.csv", function(data) {
         svg.append("text")
               .attr("transform", "rotate(-90)")
               .attr("y", 6)
-              .attr("dy", "-.9em")
+              .attr("dy", "-5em")
               .style("text-anchor", "end")
               .style('font-weight','bold')
               .text("Life Expectancy (Years)");
@@ -189,27 +189,27 @@ d3.csv("../pop-life.csv", function(data) {
 	const annotations = [
         {
           note: {
-            title: "Dominican Republic is the only country with more males.",
+            title: "The two Caribbean countries have the lowest life expectancy.",
             wrap: 150
           },
           connector: {
             end: "arrow"
           },
-          x: 210,
-          y: 100,
-          dx: -25,
-          dy: -25
+          x: 40,
+          y: 400,
+          dx: 30,
+          dy: -5
         },{
           note: {
-            title: "Poland has the largest difference between male and female.",
+            title: "The United States is in the middle of the pack.",
             wrap: 150
           },
           connector: {
             end: "arrow",
           },
-          x: 655,
-          y: 110,
-          dx: 25,
+          x: 755,
+          y: 210,
+          dx: -25,
           dy: -20
         }].map(function(d){ d.color = "#000000"; return d})
 
