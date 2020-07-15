@@ -98,7 +98,7 @@ d3.csv("../pop-mvf.csv", function(data) {
   var subgroups = data.columns.slice(1)
 
   // List of groups = species here = value of the first column called group -> I show them on the X axis
-  var groups = d3.map(data, function(d){return(d.group)}).keys()
+  var groups = d3.map(data, function(d){return(d.Country)}).keys()
   
   // Add X axis
   var x = d3.scaleBand()
@@ -138,7 +138,7 @@ d3.csv("../pop-mvf.csv", function(data) {
     .data(data)
     .enter()
     .append("g")
-      .attr("transform", function(d) { return "translate(" + x(d.group) + ",0)"; })
+      .attr("transform", function(d) { return "translate(" + x(d.Country) + ",0)"; })
     .selectAll("rect")
     .data(function(d) { return subgroups.map(function(key) { return {key: key, value: d[key]}; }); })
     .enter().append("rect")
