@@ -172,15 +172,15 @@ d3.csv("../pop-life.csv", function(data) {
 	
 	svg.append("text")             
               .attr("transform",
-                    "translate(" + (width +20) + " ," + 
-                                   (height + margin.top + 10) + ")")
+                    "translate(" + (width - 20) + " ," + 
+                                   (height + margin.top + 20) + ")")
               .style('font-weight','bold')
               .style("text-anchor", "end")
               .text("Population");
         svg.append("text")
               .attr("transform", "rotate(-90)")
               .attr("y", 6)
-              .attr("dy", ".71em")
+              .attr("dy", ".2em")
               .style("text-anchor", "end")
               .style('font-weight','bold')
               .text("Life Expectancy (Years)");
