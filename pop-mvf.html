@@ -112,7 +112,7 @@ d3.csv("../pop-mvf.csv", function(data) {
 	
    // Add Y axis
   var y = d3.scaleLinear()
-    .domain([0, 175000000])
+    .domain([0, 55])
     .range([ height, 0 ]);
   svg.append("g")
     .call(d3.axisLeft(y));
@@ -154,17 +154,17 @@ d3.csv("../pop-mvf.csv", function(data) {
 	svg.append("text")             
               .attr("transform",
                     "translate(" + (width -20) + " ," + 
-                                   (height + margin.top ) + ")")
+                                   (height + margin.top + 10) + ")")
               .style('font-weight','bold')
               .style("text-anchor", "end")
-              .text("Year");
+              .text("Country");
         svg.append("text")
               .attr("transform", "rotate(-90)")
               .attr("y", 6)
               .attr("dy", ".71em")
               .style("text-anchor", "end")
               .style('font-weight','bold')
-              .text("Population");
+              .text("% of Population");
 			  
 			  
 	const annotations = [
