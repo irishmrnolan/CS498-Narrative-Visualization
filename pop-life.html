@@ -96,7 +96,7 @@ d3.csv("../pop-life.csv", function(data) {
   
    // Add X axis
   var x = d3.scaleLinear()
-    .domain([-20, 350000000])
+    .domain([0, 350000000])
     .range([ 0, width ]);
   svg.append("g")
     .attr("transform", "translate(0," + height + ")")
@@ -172,7 +172,7 @@ d3.csv("../pop-life.csv", function(data) {
 	
 	svg.append("text")             
               .attr("transform",
-                    "translate(" + (width -20) + " ," + 
+                    "translate(" + (width +20) + " ," + 
                                    (height + margin.top + 10) + ")")
               .style('font-weight','bold')
               .style("text-anchor", "end")
