@@ -70,7 +70,7 @@ a.scene2:hover, a.scene2:active {
         </p>
 		<p>
             <font size="5" face="Verdana">
-               Below is the population trends for the 10 selected countries from 1970 to 2015.<br>As you can see, the United States has by far the highest population and each country has had an increase in population. <br>Below the chart you will find links to look into more details about the population data or move onto the next page about life expectancy.
+               Below is a comparison of male versus female population as of 2015.<br>The data is depicted as percentage of total population to show an accurate comparison from country to country. <br>Below the chart you will find links to other pages about the population data or move onto the next page about life expectancy.
             </font>
         </p>
     </center>
@@ -183,8 +183,8 @@ d3.csv("../pop-mvf.csv", function(data) {
           connector: {
             end: "arrow"
           },
-          x: 200,
-          y: 110,
+          x: 210,
+          y: 100,
           dx: -25,
           dy: -25
         },{
@@ -195,10 +195,10 @@ d3.csv("../pop-mvf.csv", function(data) {
           connector: {
             end: "arrow",
           },
-          x: 578,
-          y: 100,
-          dx: -25,
-          dy: -25
+          x: 628,
+          y: 85,
+          dx: -15,
+          dy: -15
         }].map(function(d){ d.color = "#000000"; return d})
 
     const makeAnnotations = d3.annotation()
