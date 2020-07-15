@@ -112,10 +112,17 @@ d3.csv("../pop-mvf.csv", function(data) {
 	
    // Add Y axis
   var y = d3.scaleLinear()
-    .domain([0, 55])
+    .domain([0, 65])
     .range([ height, 0 ]);
   svg.append("g")
-    .call(d3.axisLeft(y));
+    .call(d3.axisLeft(y))
+	append("rect").attr("cx", 10).attr("cy",508).attr("width", 20).attr("height", 20).style("fill", '#F16397')
+  svg.append("g")
+	.append("text").attr("x", 17).attr("y", 510).text("Female").style("font-size", "15px").attr("alignment-baseline","middle")
+  svg.append("g")
+	.append("rect").attr("cx", 70).attr("cy",508).attr("width", 20).attr("height", 20).style("fill", '#249AF1')
+  svg.append("g")
+	.append("text").attr("x", 77).attr("y", 510).text("Male").style("font-size", "15px").attr("alignment-baseline","middle");
 	
 
     // Another scale for subgroup position?
