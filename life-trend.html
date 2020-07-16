@@ -92,7 +92,7 @@ var margin = {top: 15, right: 60, bottom: 60, left: 75};
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 			
 //Read the data
-d3.csv("../pop-trend.csv", function(data) {
+d3.csv("../life-trend.csv", function(data) {
 
   // group the data: I want to draw one line per group
   var sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
@@ -110,7 +110,7 @@ d3.csv("../pop-trend.csv", function(data) {
 	
   // Add Y axis
   var y = d3.scaleLinear()
-    .domain([0, d3.max(data, function(d) { return +d.Pop; })])
+    .domain([0, d3.max(data, function(d) { return +d.Life; })])
     .range([ height, 0 ]);
   svg.append("g")
     .call(d3.axisLeft(y))
@@ -171,7 +171,7 @@ d3.csv("../pop-trend.csv", function(data) {
         .attr("d", function(d){
           return d3.line()
             .x(function(d) { return x(d.Year); })
-            .y(function(d) { return y(+d.Pop); })
+            .y(function(d) { return y(+d.Life); })
             (d.values)
 	   
 	   
@@ -240,7 +240,7 @@ d3.csv("../pop-trend.csv", function(data) {
                 |
                 <a class="scene2" href="page2-2.html">1970 vs 2015</a>                
             </font>
-        <a class="button1" href="life-trend.html" style="margin-left: 200px" >Next</a>
+        <a class="button1" href="page3-1.html" style="margin-left: 200px" >Next</a>
     </center>
 </body>
 </html>
