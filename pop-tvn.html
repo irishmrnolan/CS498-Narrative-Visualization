@@ -92,7 +92,7 @@ var margin = {top: 15, right: 60, bottom: 60, left: 75};
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 			
 //Read the data
-d3.csv("../pop-mvf.csv", function(data) {
+d3.csv("../pop-first-last.csv", function(data) {
 
    // List of subgroups = header of the csv files = soil condition here
   var subgroups = data.columns.slice(1)
@@ -218,7 +218,7 @@ d3.csv("../pop-mvf.csv", function(data) {
         <font size="3" face="Arial Black">
                 <a class="scene2" href="page2-1.html">Male vs Female</a>
                 |
-                <a class="scene2" href="pop-tvn.html">1970 vs 2015</a>                
+                <a class="scene2" href="page2-2.html">1970 vs 2015</a>                
             </font>
         <a class="button1" href="page3-1.html" style="margin-left: 200px" >Next</a>
     </center>
