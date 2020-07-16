@@ -171,7 +171,7 @@ d3.csv("../gdp-trend.csv", function(data) {
         .attr("d", function(d){
           return d3.line()
             .x(function(d) { return x(d.Year); })
-            .y(function(d) { return y(+d.Life); })
+            .y(function(d) { return y(+d.GDP); })
             (d.values)
 	   
 	   
