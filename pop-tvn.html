@@ -112,7 +112,7 @@ d3.csv("../pop-first-last.csv", function(data) {
 	
    // Add Y axis
   var y = d3.scaleLinear()
-    .domain([0, 65])
+    .domain([0, 350000000])
     .range([ height, 0 ]);
   svg.append("g")
     .call(d3.axisLeft(y))
