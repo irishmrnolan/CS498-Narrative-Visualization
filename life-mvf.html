@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+
+a.button1:link, a.button1:visited {
+  width:60px;
+  height:20px;
+  background-color: #000000;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a.button1:hover, a.button1:active {
+  background-color: #f8f9fa;
+  color: black;
+}
+
+a.scene1:link, a.scene1:visited {
+  color: black;
+  text-decoration: None;
+}
+
+a.scene1:hover, a.scene1:active {
+  text-decoration:underline;
+}
+
+a.scene2:link, a.scene2:visited {
+  color: black;
+  text-decoration: None;
+}
+
+a.scene2:hover, a.scene2:active {
+  text-decoration:underline;
+}
+
+.axis path,.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.chart {
+    max-width: 950px;
+    min-width: 304px;
+    margin: 0 auto;
+    background-color: #f8f9fa;
+}
+
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <title> Population Male vs. Female </title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+</head>
+<body bgcolor="#fff">
+    <center>
+        <p>
+            <font size="20" face="Verdana">
+                Population Male vs. Female 2015
+            </font>
+        </p>
+		<p>
+            <font size="5" face="Verdana">
+               Below is a comparison of male versus female population as of 2015.<br>The data is depicted as percentage of total population to show an accurate comparison from country to country. <br>Below the chart you will find links to other pages about the population data or move onto the next page about life expectancy.
+            </font>
+        </p>
+    </center>
+    <div class="chart" id="chart">
+       
+    </div>
+	
+<script>
+var margin = {top: 15, right: 60, bottom: 60, left: 75};
+        width = 1000 - margin.left - margin.right,
+        height = 547 - margin.top - margin.bottom;
+
+        
+
+        var svg = d3.select('#chart').append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+          .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+			
+//Read the data
+d3.csv("../life-mvf.csv", function(data) {
+
+   // List of subgroups = header of the csv files = soil condition here
+  var subgroups = data.columns.slice(1)
+
+  // List of groups = species here = value of the first column called group -> I show them on the X axis
+  var groups = d3.map(data, function(d){return(d.Country)}).keys()
+  
+  // Add X axis
+  var x = d3.scaleBand()
+      .domain(groups)
+      .range([0, width])
+      .padding([0.2])
+  svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x).tickSize(0));
+	
+	
+   // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([65, 90])
+    .range([ height, 0 ]);
+  svg.append("g")
+    .call(d3.axisLeft(y))
+	.append("rect").attr("x", 350).attr("y",500).attr("width", 20).attr("height", 20).style("fill", '#F16397')
+  svg.append("g")
+	.append("text").attr("x", 375).attr("y", 510).text("Female").style("font-size", "15px").attr("alignment-baseline","middle")
+  svg.append("g")
+	.append("rect").attr("x", 425).attr("y",500).attr("width", 20).attr("height", 20).style("fill", '#249AF1')
+  svg.append("g")
+	.append("text").attr("x", 450).attr("y", 510).text("Male").style("font-size", "15px").attr("alignment-baseline","middle");
+	
+
+    // Another scale for subgroup position?
+  var xSubgroup = d3.scaleBand()
+    .domain(subgroups)
+    .range([0, x.bandwidth()])
+    .padding([0.05])
+	
+	
+   // color palette = one color per subgroup
+  var color = d3.scaleOrdinal()
+    .domain(subgroups)
+    .range(['#F16397','#249AF1'])	
+  
+
+  // Show the bars
+  svg.append("g")
+    .selectAll("g")
+    // Enter in data = loop group per group
+    .data(data)
+    .enter()
+    .append("g")
+      .attr("transform", function(d) { return "translate(" + x(d.Country) + ",0)"; })
+    .selectAll("rect")
+    .data(function(d) { return subgroups.map(function(key) { return {key: key, value: d[key]}; }); })
+    .enter().append("rect")
+      .attr("x", function(d) { return xSubgroup(d.key); })
+      .attr("y", function(d) { return y(d.value); })
+      .attr("width", xSubgroup.bandwidth())
+      .attr("height", function(d) { return height - y(d.value); })
+      .attr("fill", function(d) { return color(d.key); });  
+	   
+	 
+	})
+	
+	svg.append("text")             
+              .attr("transform",
+                    "translate(" + (width -20) + " ," + 
+                                   (height + margin.top + 10) + ")")
+              .style('font-weight','bold')
+              .style("text-anchor", "end")
+              .text("Country");
+        svg.append("text")
+              .attr("transform", "rotate(-90)")
+              .attr("y", 6)
+              .attr("dy", ".71em")
+              .style("text-anchor", "end")
+              .style('font-weight','bold')
+              .text("% of Population");
+			  
+			  
+	const annotations = [
+        {
+          note: {
+            title: "Dominican Republic is the only country with more males.",
+            wrap: 150
+          },
+          connector: {
+            end: "arrow"
+          },
+          x: 210,
+          y: 100,
+          dx: -25,
+          dy: -25
+        },{
+          note: {
+            title: "Poland has the largest difference between male and female.",
+            wrap: 150
+          },
+          connector: {
+            end: "arrow",
+          },
+          x: 655,
+          y: 110,
+          dx: 25,
+          dy: -20
+        }].map(function(d){ d.color = "#000000"; return d})
+
+    const makeAnnotations = d3.annotation()
+         .type(d3.annotationLabel)
+         .annotations(annotations)
+
+    svg .append("g")
+        .attr("class", "annotation-group")
+        .call(makeAnnotations)
+
+
+</script>	
+	
+<center>
+        <p></p>
+        <a class="button1" href="index.html" style="margin-right: 200px">Previous</a>
+        <font size="3" face="Arial Black">
+                <a class="scene2" href="page2-1.html">Male vs Female</a>
+                |
+                <a class="scene2" href="pop-tvn.html">1970 vs 2015</a>                
+            </font>
+        <a class="button1" href="life-trend.html" style="margin-left: 200px" >Next</a>
+    </center>
+</body>
+</html>
