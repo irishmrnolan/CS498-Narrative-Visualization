@@ -57,7 +57,7 @@ a.scene2:hover, a.scene2:active {
 
 <head>
     <meta charset="UTF-8">
-    <title> Population Male vs. Female </title>
+    <title> Life Expectancy Male vs. Female </title>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
 </head>
@@ -65,7 +65,7 @@ a.scene2:hover, a.scene2:active {
     <center>
         <p>
             <font size="20" face="Verdana">
-                Population Male vs. Female 2015
+                Life Expectancy Male vs. Female 2015
             </font>
         </p>
 		<p>
@@ -214,13 +214,15 @@ d3.csv("../life-mvf.csv", function(data) {
 	
 <center>
         <p></p>
-        <a class="button1" href="index.html" style="margin-right: 200px">Previous</a>
+        <a class="button1" href="pop-trend.html" style="margin-right: 200px">Population</a>
         <font size="3" face="Arial Black">
-                <a class="scene2" href="page2-1.html">Male vs Female</a>
+                <a class="scene2" href="life-trend.html">Life Expectancy Trends</a>
                 |
-                <a class="scene2" href="life-tvn.html">1970 vs 2015</a>                
+                <a class="scene2" href="life-tvn.html">1970 vs 2015</a>
+				|
+				<a class="scene2" href="pop-life.html">Population vs Life Expectancy</a>
             </font>
-        <a class="button1" href="gdp-trend.html" style="margin-left: 200px" >Next</a>
+        <a class="button1" href="gdp-trend.html" style="margin-left: 200px" >GDP</a>
     </center>
 </body>
 </html>
