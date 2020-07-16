@@ -110,7 +110,7 @@ d3.csv("../life-trend.csv", function(data) {
 	
   // Add Y axis
   var y = d3.scaleLinear()
-    .domain([0, d3.max(data, function(d) { return +d.Life; })])
+    .domain([55, d3.max(data, function(d) { return +d.Life; })])
     .range([ height, 0 ]);
   svg.append("g")
     .call(d3.axisLeft(y))
