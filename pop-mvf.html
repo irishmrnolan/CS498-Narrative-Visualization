@@ -3,7 +3,7 @@
 <style>
 
 a.button1:link, a.button1:visited {
-  width:60px;
+  width:75px;
   height:20px;
   background-color: #000000;
   color: white;
@@ -14,6 +14,22 @@ a.button1:link, a.button1:visited {
 }
 
 a.button1:hover, a.button1:active {
+  background-color: #f8f9fa;
+  color: black;
+}
+
+a.button2:link, a.button2:visited {
+  width:75px;
+  height:35px;
+  background-color: #000000;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a.button2:hover, a.button2:active {
   background-color: #f8f9fa;
   color: black;
 }
@@ -216,11 +232,11 @@ d3.csv("../pop-mvf.csv", function(data) {
         <p></p>
         <a class="button1" href="index.html" style="margin-right: 200px">Introduction</a>
         <font size="3" face="Arial Black">
-                <a class="scene2" href="pop-trend">Population Trends</a>
+                <a class="scene2" href="pop-trend">Pop Trends</a>
                 |
-                <a class="scene2" href="pop-tvn.html">1970 vs 2015</a>                
+                <a class="scene2" href="pop-tvn.html">Pop 1970 vs 2015</a>                
             </font>
-        <a class="button1" href="life-trend.html" style="margin-left: 200px" >Life Expectancy</a>
+        <a class="button2" href="life-trend.html" style="margin-left: 200px" >Life Expectancy</a>
     </center>
 </body>
 </html>
