@@ -3,7 +3,7 @@
 <style>
 
 a.button1:link, a.button1:visited {
-  width:60px;
+  width:75px;
   height:20px;
   background-color: #000000;
   color: white;
@@ -14,6 +14,22 @@ a.button1:link, a.button1:visited {
 }
 
 a.button1:hover, a.button1:active {
+  background-color: #f8f9fa;
+  color: black;
+}
+
+a.button2:link, a.button2:visited {
+  width:75px;
+  height:35px;
+  background-color: #000000;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a.button2:hover, a.button2:active {
   background-color: #f8f9fa;
   color: black;
 }
@@ -70,7 +86,7 @@ a.scene2:hover, a.scene2:active {
         </p>
 		<p>
             <font size="5" face="Verdana">
-               Below is a comparison of male versus female population as of 2015.<br>The data is depicted as percentage of total population to show an accurate comparison from country to country. <br>Below the chart you will find links to other pages about the population data or move onto the next page about life expectancy.
+               Below is a comparison of GDP per capita versus population as of 2015.<br>Similar to life expectancy versus population, there does not seem to be a correlation in the data. <br>Below the chart you will find links to other pages about the population data or move onto the next page about life expectancy.
             </font>
         </p>
     </center>
@@ -183,34 +199,34 @@ d3.csv("../gdp-pop.csv", function(data) {
               .attr("dy", "-3em")
               .style("text-anchor", "end")
               .style('font-weight','bold')
-              .text("Life Expectancy (Years)");
+              .text("GDP");
 			  
 			  
 	const annotations = [
         {
           note: {
-            title: "The two Caribbean countries have the lowest life expectancy.",
+            title: "We can see the lower populations represent both high and low GDP per capita.",
             wrap: 150
           },
-          connector: {
-            end: "arrow"
+          //connector: {
+            //end: "arrow"
           },
           x: 35,
-          y: 350,
-          dx: 75,
-          dy: 25
+          y: 175,
+          //dx: 75,
+          //dy: 25
         },{
           note: {
-            title: "The United States is in the middle of the pack in life expectancy.",
+            title: "The United States is in the top 3 of GDP per capita.",
             wrap: 150
           },
           connector: {
             end: "arrow",
           },
-          x: 775,
-          y: 190,
+          x: 795,
+          y: 90,
           dx: -25,
-          dy: -20
+          dy: 120
         }].map(function(d){ d.color = "#000000"; return d})
 
     const makeAnnotations = d3.annotation()
@@ -226,9 +242,9 @@ d3.csv("../gdp-pop.csv", function(data) {
 	
 <center>
         <p></p>
-        <a class="button1" href="life-trend.html" style="margin-right: 200px">Life Expectancy</a>
+        <a class="button2" href="life-trend.html" style="margin-right: 200px">Life Expectancy</a>
         <font size="3" face="Arial Black">
-                <a class="scene2" href="gdp-tvn.html">1970 vs 2015</a>
+                <a class="scene2" href="gdp-tvn.html">GDP 1970 vs 2015</a>
 				|
 				<a class="scene2" href="gdp-trend.html">GDP Trends</a>
                 | 
