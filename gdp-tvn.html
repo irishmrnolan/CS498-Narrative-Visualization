@@ -3,7 +3,7 @@
 <style>
 
 a.button1:link, a.button1:visited {
-  width:60px;
+  width:75px;
   height:20px;
   background-color: #000000;
   color: white;
@@ -14,6 +14,22 @@ a.button1:link, a.button1:visited {
 }
 
 a.button1:hover, a.button1:active {
+  background-color: #f8f9fa;
+  color: black;
+}
+
+a.button2:link, a.button2:visited {
+  width:75px;
+  height:35px;
+  background-color: #000000;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a.button2:hover, a.button2:active {
   background-color: #f8f9fa;
   color: black;
 }
@@ -171,34 +187,34 @@ d3.csv("../gdp-firstlast.csv", function(data) {
               .attr("dy", ".71em")
               .style("text-anchor", "end")
               .style('font-weight','bold')
-              .text("Population");
+              .text("GDP");
 			  
 			  
 	const annotations = [
         {
           note: {
-            title: "Dominican Republic is the only country with more males.",
+            title: "Ireland went from 6th to 1st in GDP per capita.",
             wrap: 150
           },
           connector: {
             end: "arrow"
           },
-          x: 210,
+          x: 410,
           y: 100,
-          dx: -25,
+          dx: -75,
           dy: -25
         },{
           note: {
-            title: "Poland has the largest difference between male and female.",
+            title: "Jamaica went from 7th to last in GDP per capita.",
             wrap: 150
           },
           connector: {
             end: "arrow",
           },
-          x: 655,
-          y: 110,
+          x: 455,
+          y: 470,
           dx: 25,
-          dy: -20
+          dy: -40
         }].map(function(d){ d.color = "#000000"; return d})
 
     const makeAnnotations = d3.annotation()
@@ -214,7 +230,7 @@ d3.csv("../gdp-firstlast.csv", function(data) {
 	
 <center>
         <p></p>
-        <a class="button1" href="life-trend.html" style="margin-right: 200px">Life Expectancy</a>
+        <a class="button2" href="life-trend.html" style="margin-right: 200px">Life Expectancy</a>
         <font size="3" face="Arial Black">
                 <a class="scene2" href="gdp-trend.html">GDP Trends</a>
 				|
