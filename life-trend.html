@@ -3,7 +3,7 @@
 <style>
 
 a.button1:link, a.button1:visited {
-  width:60px;
+  width:75px;
   height:20px;
   background-color: #000000;
   color: white;
@@ -14,6 +14,22 @@ a.button1:link, a.button1:visited {
 }
 
 a.button1:hover, a.button1:active {
+  background-color: #f8f9fa;
+  color: black;
+}
+
+a.button2:link, a.button2:visited {
+  width:60px;
+  height:20px;
+  background-color: #000000;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a.button2:hover, a.button2:active {
   background-color: #f8f9fa;
   color: black;
 }
@@ -70,7 +86,7 @@ a.scene2:hover, a.scene2:active {
         </p>
 		<p>
             <font size="5" face="Verdana">
-               Below is the population trends for the 10 selected countries from 1970 to 2015.<br>As you can see, the United States has by far the highest population and each country has had an increase in population. <br>Below the chart you will find links to look into more details about the population data or move onto the next page about life expectancy.
+               Below is the life expectancy trends for the 10 selected countries from 1970 to 2015.<br>As you can see, every country has had an increase in life expectancy, but some have had dips in the process. <br>Below the chart you will find links to look into more details about the life expectancy data or move onto the next page about GDP.
             </font>
         </p>
     </center>
@@ -191,33 +207,33 @@ d3.csv("../life-trend.csv", function(data) {
               .attr("dy", ".71em")
               .style("text-anchor", "end")
               .style('font-weight','bold')
-              .text("Population");
+              .text("Years");
 			  
 			  
 	const annotations = [
         {
           note: {
-            title: "Poland has the smallest increase in population.",
+            title: "Thailand has the largest increase in life expectancy.",
             wrap: 150
           },
           connector: {
             end: "arrow"
           },
           x: 760,
-          y: 410,
-          dx: -50,
+          y: 210,
+          dx: -150,
           dy: -110
         },{
           note: {
-            title: "Mexico has the largest increase in population.",
+            title: "Jamaica has the smallest increase in life expectancy.",
             wrap: 150
           },
           connector: {
             end: "arrow",
           },
           x: 378,
-          y: 345,
-          dx: -80,
+          y: 145,
+          dx: -50,
           dy: -50
         }].map(function(d){ d.color = "#000000"; return d})
 
@@ -236,11 +252,13 @@ d3.csv("../life-trend.csv", function(data) {
         <p></p>
         <a class="button1" href="pop-trend.html" style="margin-right: 200px">Population</a>
         <font size="3" face="Arial Black">
-                <a class="scene2" href="life-mvf.html">Male vs Female</a>
+                <a class="scene2" href="life-mvf.html">Life Male vs Female</a>
                 |
-                <a class="scene2" href="life-tvn.html">1970 vs 2015</a>                
+                <a class="scene2" href="life-tvn.html">Life 1970 vs 2015</a>
+				|
+				<a class="scene2" href="pop-life.html">Population vs Life Expectancy</a>                
             </font>
-        <a class="button1" href="gdp-trend.html" style="margin-left: 200px" >GDP</a>
+        <a class="button2" href="gdp-trend.html" style="margin-left: 200px" >GDP</a>
     </center>
 </body>
 </html>
