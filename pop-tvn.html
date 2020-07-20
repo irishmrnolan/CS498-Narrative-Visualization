@@ -3,7 +3,7 @@
 <style>
 
 a.button1:link, a.button1:visited {
-  width:60px;
+  width:75px;
   height:20px;
   background-color: #000000;
   color: white;
@@ -14,6 +14,22 @@ a.button1:link, a.button1:visited {
 }
 
 a.button1:hover, a.button1:active {
+  background-color: #f8f9fa;
+  color: black;
+}
+
+a.button2:link, a.button2:visited {
+  width:75px;
+  height:35px;
+  background-color: #000000;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a.button2:hover, a.button2:active {
   background-color: #f8f9fa;
   color: black;
 }
@@ -70,7 +86,7 @@ a.scene2:hover, a.scene2:active {
         </p>
 		<p>
             <font size="5" face="Verdana">
-               Below is a comparison of male versus female population as of 2015.<br>The data is depicted as percentage of total population to show an accurate comparison from country to country. <br>Below the chart you will find links to other pages about the population data or move onto the next page about life expectancy.
+               Below is a comparison of populations in 1970 versus 2015.<br>While similar to population trends, we can see a direct comparison from start to finish of our data. <br>Below the chart you will find links to other pages about the population data or move onto the next page about life expectancy.
             </font>
         </p>
     </center>
@@ -177,26 +193,26 @@ d3.csv("../pop-first-last.csv", function(data) {
 	const annotations = [
         {
           note: {
-            title: "Dominican Republic is the only country with more males.",
+            title: "Dominican Republic's population has more than doubled.",
             wrap: 150
           },
           connector: {
             end: "arrow"
           },
           x: 210,
-          y: 100,
+          y: 400,
           dx: -25,
           dy: -25
         },{
           note: {
-            title: "Poland has the largest difference between male and female.",
+            title: "Mexico's population has also more than doubled.",
             wrap: 150
           },
           connector: {
             end: "arrow",
           },
-          x: 655,
-          y: 110,
+          x: 600,
+          y: 310,
           dx: 25,
           dy: -20
         }].map(function(d){ d.color = "#000000"; return d})
@@ -216,11 +232,11 @@ d3.csv("../pop-first-last.csv", function(data) {
         <p></p>
         <a class="button1" href="index.html" style="margin-right: 200px">Introduction</a>
         <font size="3" face="Arial Black">
-                <a class="scene2" href="pop-mvf.html">Male vs Female</a>
+                <a class="scene2" href="pop-mvf.html">Pop Male vs Female</a>
                 |
-                <a class="scene2" href="pop-trend.html">Population Trends</a>                
+                <a class="scene2" href="pop-trend.html">Pop Trends</a>                
             </font>
-        <a class="button1" href="life-trend.html" style="margin-left: 200px" >Life Expectancy</a>
+        <a class="button2" href="life-trend.html" style="margin-left: 200px" >Life Expectancy</a>
     </center>
 </body>
 </html>
