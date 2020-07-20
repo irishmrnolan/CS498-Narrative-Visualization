@@ -4,7 +4,23 @@
 
 a.button1:link, a.button1:visited {
   width:75px;
-  height:25px;
+  height:20px;
+  background-color: #000000;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a.button2:hover, a.button2:active {
+  background-color: #f8f9fa;
+  color: black;
+}
+
+a.button2:link, a.button2:visited {
+  width:75px;
+  height:30px;
   background-color: #000000;
   color: white;
   padding: 10px 15px;
@@ -240,7 +256,7 @@ d3.csv("../pop-trend.csv", function(data) {
                 |
                 <a class="scene2" href="pop-tvn.html">1970 vs 2015</a>                
             </font>
-        <a class="button1" href="life-trend.html" style="margin-left: 200px" >Life Expectancy</a>
+        <a class="button2" href="life-trend.html" style="margin-left: 200px" >Life Expectancy</a>
     </center>
 </body>
 </html>
