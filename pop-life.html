@@ -3,7 +3,7 @@
 <style>
 
 a.button1:link, a.button1:visited {
-  width:60px;
+  width:75px;
   height:20px;
   background-color: #000000;
   color: white;
@@ -14,6 +14,22 @@ a.button1:link, a.button1:visited {
 }
 
 a.button1:hover, a.button1:active {
+  background-color: #f8f9fa;
+  color: black;
+}
+
+a.button2:link, a.button2:visited {
+  width:60px;
+  height:20px;
+  background-color: #000000;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a.button2:hover, a.button2:active {
   background-color: #f8f9fa;
   color: black;
 }
@@ -57,7 +73,7 @@ a.scene2:hover, a.scene2:active {
 
 <head>
     <meta charset="UTF-8">
-    <title> Population vs. Life Expectancy </title>
+    <title> Life Expectancy vs. Population </title>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
 </head>
@@ -65,12 +81,12 @@ a.scene2:hover, a.scene2:active {
     <center>
         <p>
             <font size="20" face="Verdana">
-                Population vs. Life Expectancy 2015
+                Life Expectancy vs. Population 2015
             </font>
         </p>
 		<p>
             <font size="5" face="Verdana">
-               Below is a comparison of male versus female population as of 2015.<br>The data is depicted as percentage of total population to show an accurate comparison from country to country. <br>Below the chart you will find links to other pages about the population data or move onto the next page about life expectancy.
+               Below is a comparison of life expectancy versus population as of 2015.<br>There does not seem to be a direct correlation between life expectancy and population for these 10 countries. <br>Below the chart you will find links to other pages about the life expectancy data or move onto the next page about GDP.
             </font>
         </p>
     </center>
@@ -228,13 +244,13 @@ d3.csv("../pop-life.csv", function(data) {
         <p></p>
         <a class="button1" href="pop-trend.html" style="margin-right: 200px">Population</a>
         <font size="3" face="Arial Black">
-                <a class="scene2" href="page2-1.html">Male vs Female</a>
+                <a class="scene2" href="life-mvf.html">Life Male vs Female</a>
                 |
-                <a class="scene2" href="page2-2.html">1970 vs 2015</a>				
+                <a class="scene2" href="life-tvn.html">Life 1970 vs 2015</a>				
 				|
-				<a class="scene2" href="pop-life.html">Life Expectancy Trends</a>
+				<a class="scene2" href="life-trend.html">Life Expectancy Trends</a>
             </font>
-        <a class="button1" href="gdp-trend.html" style="margin-left: 200px" >GDP</a>
+        <a class="button2" href="gdp-trend.html" style="margin-left: 200px" >GDP</a>
     </center>
 </body>
 </html>
