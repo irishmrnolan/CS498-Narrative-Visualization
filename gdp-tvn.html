@@ -86,7 +86,7 @@ a.scene2:hover, a.scene2:active {
         </p>
 		<p>
             <font size="5" face="Verdana">
-               Below is a comparison of male versus female population as of 2015.<br>The data is depicted as percentage of total population to show an accurate comparison from country to country. <br>Below the chart you will find links to other pages about the population data or move onto the next page about life expectancy.
+               Below is a comparison of GDP per capita 1970 vs. 2015.<br>Every country had significant growth but some were better than others. <br>Below the chart you will find links to look into more details about the GDP data or move onto the conclusion.
             </font>
         </p>
     </center>
@@ -199,9 +199,9 @@ d3.csv("../gdp-firstlast.csv", function(data) {
           connector: {
             end: "arrow"
           },
-          x: 410,
+          x: 400,
           y: 100,
-          dx: -75,
+          dx: -85,
           dy: -25
         },{
           note: {
@@ -211,10 +211,10 @@ d3.csv("../gdp-firstlast.csv", function(data) {
           connector: {
             end: "arrow",
           },
-          x: 455,
-          y: 470,
-          dx: 25,
-          dy: -40
+          x: 465,
+          y: 440,
+          dx: 35,
+          dy: -50
         }].map(function(d){ d.color = "#000000"; return d})
 
     const makeAnnotations = d3.annotation()
