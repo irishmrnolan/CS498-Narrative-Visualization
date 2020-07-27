@@ -208,7 +208,10 @@ d3.csv("../pop-trend.csv", function(data) {
               .style("text-anchor", "end")
               .style('font-weight','bold')
               .text("Population");
-			  
+	svg.append("text")
+		.attr(x, 760)
+		.attr(y, 410)
+		.text("This is a test")
 			  
 	const annotations = [
         {
