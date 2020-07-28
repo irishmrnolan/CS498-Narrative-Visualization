@@ -75,7 +75,6 @@ a.scene2:hover, a.scene2:active {
     <meta charset="UTF-8">
     <title> Life Expectancy Male vs. Female </title>
     <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
 </head>
 <body bgcolor="#fff">
     <center>
@@ -138,7 +137,19 @@ d3.csv("../life-mvf.csv", function(data) {
   svg.append("g")
 	.append("rect").attr("x", 425).attr("y",500).attr("width", 20).attr("height", 20).style("fill", '#249AF1')
   svg.append("g")
-	.append("text").attr("x", 450).attr("y", 510).text("Male").style("font-size", "15px").attr("alignment-baseline","middle");
+	.append("text").attr("x", 450).attr("y", 510).text("Male").style("font-size", "15px").attr("alignment-baseline","middle")
+   svg.append("g")
+	.append("text").attr("x", 375).attr("y", 65).text("Jamaica has the smallest").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("text").attr("x", 375).attr("y", 80).text("difference between male and female.").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("path").attr("d", "M 450 85 L 475 110").style("stroke-width", 1).style("stroke", "black")
+	svg.append("g")
+	.append("text").attr("x", 600).attr("y", 65).text("Poland has the largest").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("text").attr("x", 600).attr("y", 80).text("difference between male and female.").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("path").attr("d", "M 680 85 L 655 110").style("stroke-width", 1).style("stroke", "black");
 	
 
     // Another scale for subgroup position?
@@ -190,40 +201,7 @@ d3.csv("../life-mvf.csv", function(data) {
               .text("Years");
 			  
 			  
-	const annotations = [
-        {
-          note: {
-            title: "Jamaica has the smallest difference between male and female.",
-            wrap: 150
-          },
-          connector: {
-            end: "arrow"
-          },
-          x: 475,
-          y: 110,
-          dx: -25,
-          dy: -25
-        },{
-          note: {
-            title: "Poland has the largest difference between male and female.",
-            wrap: 150
-          },
-          connector: {
-            end: "arrow",
-          },
-          x: 655,
-          y: 110,
-          dx: 25,
-          dy: -20
-        }].map(function(d){ d.color = "#000000"; return d})
-
-    const makeAnnotations = d3.annotation()
-         .type(d3.annotationLabel)
-         .annotations(annotations)
-
-    svg .append("g")
-        .attr("class", "annotation-group")
-        .call(makeAnnotations)
+	
 
 
 </script>	
