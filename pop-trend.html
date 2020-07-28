@@ -74,8 +74,7 @@ a.scene2:hover, a.scene2:active {
 <head>
     <meta charset="UTF-8">
     <title> Population Trends </title>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script
 </head>
 <body bgcolor="#fff">
     <center>
@@ -90,7 +89,7 @@ a.scene2:hover, a.scene2:active {
             </font>
         </p>
     </center>
-    <div class="chart" id="chart">
+    <div class="chart" id="chart">   
     </div>
 	
 <script>
@@ -177,9 +176,15 @@ d3.csv("../pop-trend.csv", function(data) {
 	svg.append("g")
 	.append("text").attr("x", 610).attr("y", 295).text("increase in population.").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
 	svg.append("g")
-    .append('defs').append('marker').attr('id', 'arrow').attr('viewBox', [0, 0, markerBoxWidth, markerBoxHeight]).attr('refX', refX).attr('refY', refY).attr('markerWidth', markerBoxWidth).attr('markerHeight', markerBoxHeight).attr('orient', 'auto-start-reverse').append('path').attr('d', d3.line()(arrowPoints)).attr('stroke', 'black')
+	.append("path").attr("d", "M 760 410 L 710 300").style("stroke-width", 1).style("stroke", "black")
 	svg.append("g")
-	.append("path").attr("d", "M 760 410 L 710 300").style("stroke-width", 1).style("stroke", "black").attr("marker-end", "url(#arrow)")
+	.append("circle").attr("cx", 381).attr("cy",350).attr("r", 6).style("stroke", "black").style("fill", "none")
+	svg.append("g")
+	.append("text").attr("x", 280).attr("y", 300).text("Mexico has the largest").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("text").attr("x", 280).attr("y", 315).text("increase in population.").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("path").attr("d", "M 378 344 L 298 295").style("stroke-width", 1).style("stroke", "black")
 	;
 
   // color palette
@@ -245,28 +250,7 @@ d3.csv("../pop-trend.csv", function(data) {
     }
   });		
 }  
-	const annotations = [
-        {
-          note: {
-            title: "Mexico has the largest increase in population.",
-            wrap: 150
-          },
-          connector: {
-            end: "arrow",
-          },
-          x: 378,
-          y: 345,
-          dx: -80,
-          dy: -50
-        }].map(function(d){ d.color = "#000000"; return d})
-
-    const makeAnnotations = d3.annotation()
-         .type(d3.annotationLabel)
-         .annotations(annotations)
-
-    svg .append("g")
-        .attr("class", "annotation-group")
-        .call(makeAnnotations)
+	
 })
 
   
