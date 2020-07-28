@@ -170,7 +170,7 @@ d3.csv("../pop-trend.csv", function(data) {
 	svg.append("g")
 	.append("text").attr("x", 557).attr("y", 510).text("USA").style("font-size", "15px").attr("alignment-baseline","middle")
 	svg.append("g")
-	.append("text").attr("x", 710).attr("y", 280).text("Poland has the smallest increase in population.").style("font-size", "16px").attr("font-weight", "bold").attr("font-family", "sans-serif").call(wrap, 150)
+	.append("text").attr("x", 710).attr("y", 280).text("Poland has the smallest increase in population.").style("font-size", "16px").attr("font-weight", "bold").attr("font-family", "sans-serif")
 	svg.append("g")
 	.append("path").attr("d", "M 760 410 L 710 300").style("stroke-width", 1).style("stroke", "black")
 	svg.append("g")
@@ -214,28 +214,7 @@ d3.csv("../pop-trend.csv", function(data) {
               .style("text-anchor", "end")
               .style('font-weight','bold')
               .text("Population");
-	function wrap(text, width) {
-		text.each(function() {
-		var text = d3.select(this),
-			words = text.text().split(/\s+/).reverse(),
-			word,
-			line = [],
-			lineNumber = 0,
-			lineHeight = 1.1, // ems
-			y = text.attr("y"),
-			dy = parseFloat(text.attr("dy")),
-			tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
-		while (word = words.pop()) {
-			line.push(word);
-			tspan.text(line.join(" "));
-		if (tspan.node().getComputedTextLength() > width) {
-			line.pop();
-			tspan.text(line.join(" "));
-			line = [word];
-			tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
-			}
-		}
-		}});		  
+		  
 			  
 	
 			  
