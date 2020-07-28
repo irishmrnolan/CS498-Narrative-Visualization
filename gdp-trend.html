@@ -169,21 +169,21 @@ d3.csv("../gdp-trend.csv", function(data) {
 	svg.append("g")
 	.append("text").attr("x", 557).attr("y", 510).text("USA").style("font-size", "15px").attr("alignment-baseline","middle")
 	svg.append("g")
-	.append("circle").attr("cx", 665).attr("cy",115).attr("r", 6).style("stroke", "black").style("fill", "none")
+	.append("circle").attr("cx", 660).attr("cy",115).attr("r", 6).style("stroke", "black").style("fill", "none")
 	svg.append("g")
 	.append("text").attr("x", 550).attr("y", 39).text("Ireland has the largest").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
 	svg.append("g")
 	.append("text").attr("x", 550).attr("y", 54).text("increase in GDP.").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
 	svg.append("g")
-	.append("path").attr("d", "M 615 59 L 665 109").style("stroke-width", 1).style("stroke", "black")
+	.append("path").attr("d", "M 615 59 L 660 109").style("stroke-width", 1).style("stroke", "black")
 	svg.append("g")
 	.append("circle").attr("cx", 845).attr("cy",435).attr("r", 6).style("stroke", "black").style("fill", "none")
 	svg.append("g")
-	.append("text").attr("x", 650).attr("y", 255).text("Jamaica has the smallest").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	.append("text").attr("x", 675).attr("y", 240).text("Jamaica has the smallest").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
 	svg.append("g")
-	.append("text").attr("x", 650).attr("y", 270).text("increase in GDP.").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	.append("text").attr("x", 675).attr("y", 255).text("increase in GDP.").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
 	svg.append("g")
-	.append("path").attr("d", "M 750 275 L 845 429").style("stroke-width", 1).style("stroke", "black");
+	.append("path").attr("d", "M 750 260 L 845 429").style("stroke-width", 1).style("stroke", "black");
 
   // color palette
   var res = sumstat.map(function(d){ return d.key }) // list of group names
