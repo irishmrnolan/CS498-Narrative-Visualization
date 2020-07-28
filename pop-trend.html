@@ -214,6 +214,7 @@ d3.csv("../pop-trend.csv", function(data) {
               .style("text-anchor", "end")
               .style('font-weight','bold')
               .text("Population");
+			  
 	function wrap(text, width) {
 		text.each(function() {
 		var text = d3.select(this),
@@ -235,7 +236,7 @@ d3.csv("../pop-trend.csv", function(data) {
 			tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
 			}
 		}
-		}
+		})
 		});		  
 			  
 	
