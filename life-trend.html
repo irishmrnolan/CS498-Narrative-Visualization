@@ -177,13 +177,13 @@ d3.csv("../life-trend.csv", function(data) {
 	svg.append("g")
 	.append("path").attr("d", "M 710 286 L 660 186").style("stroke-width", 1).style("stroke", "black")
 	svg.append("g")
-	.append("circle").attr("cx", 278).attr("cy",180).attr("r", 6).style("stroke", "black").style("fill", "none")
+	.append("circle").attr("cx", 278).attr("cy",185).attr("r", 6).style("stroke", "black").style("fill", "none")
 	svg.append("g")
-	.append("text").attr("x", 150).attr("y", 115).text("Jamaica has the smallest").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	.append("text").attr("x", 150).attr("y", 60).text("Jamaica has the smallest").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
 	svg.append("g")
-	.append("text").attr("x", 150).attr("y", 130).text("increase in life expectancy.").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	.append("text").attr("x", 150).attr("y", 75).text("increase in life expectancy.").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
 	svg.append("g")
-	.append("path").attr("d", "M 200 135 L 278 186").style("stroke-width", 1).style("stroke", "black");
+	.append("path").attr("d", "M 200 80 L 278 179").style("stroke-width", 1).style("stroke", "black");
 
   // color palette
   var res = sumstat.map(function(d){ return d.key }) // list of group names
