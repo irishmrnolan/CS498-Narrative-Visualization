@@ -75,7 +75,6 @@ a.scene2:hover, a.scene2:active {
     <meta charset="UTF-8">
     <title> Population 1970 vs. 2015 </title>
     <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
 </head>
 <body bgcolor="#fff">
     <center>
@@ -138,7 +137,19 @@ d3.csv("../pop-first-last.csv", function(data) {
   svg.append("g")
 	.append("rect").attr("x", 425).attr("y",500).attr("width", 20).attr("height", 20).style("fill", '#ED9C18')
   svg.append("g")
-	.append("text").attr("x", 450).attr("y", 510).text("2015").style("font-size", "15px").attr("alignment-baseline","middle");
+	.append("text").attr("x", 450).attr("y", 510).text("2015").style("font-size", "15px").attr("alignment-baseline","middle")
+  svg.append("g")
+	.append("text").attr("x", 175).attr("y", 405).text("Dominican Republic's population").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("text").attr("x", 175).attr("y", 420).text("has more than doubled.").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("path").attr("d", "M 220 425 L 220 450").style("stroke-width", 1).style("stroke", "black")
+	svg.append("g")
+	.append("text").attr("x", 475).attr("y", 285).text("Mexico's popluation").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("text").attr("x", 475).attr("y", 300).text("has more than doubled.").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("path").attr("d", "M 550 330 L 550 305").style("stroke-width", 1).style("stroke", "black");
 	
 
     // Another scale for subgroup position?
@@ -189,41 +200,7 @@ d3.csv("../pop-first-last.csv", function(data) {
               .style('font-weight','bold')
               .text("Population");
 			  
-			  
-	const annotations = [
-        {
-          note: {
-            title: "Dominican Republic's population has more than doubled.",
-            wrap: 150
-          },
-          connector: {
-            end: "arrow"
-          },
-          x: 220,
-          y: 450,
-          dx: 25,
-          dy: -25
-        },{
-          note: {
-            title: "Mexico's population has more than doubled.",
-            wrap: 150
-          },
-          connector: {
-            end: "arrow",
-          },
-          x: 550,
-          y: 330,
-          dx: -25,
-          dy: -20
-        }].map(function(d){ d.color = "#000000"; return d})
-
-    const makeAnnotations = d3.annotation()
-         .type(d3.annotationLabel)
-         .annotations(annotations)
-
-    svg .append("g")
-        .attr("class", "annotation-group")
-        .call(makeAnnotations)
+	
 
 
 </script>	
