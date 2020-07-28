@@ -172,7 +172,9 @@ d3.csv("../pop-trend.csv", function(data) {
 	svg.append("g")
 	.append("circle").attr("cx", 763).attr("cy",416).attr("r", 6).style("stroke", "black").style("fill", "none")
 	svg.append("g")
-	.append("text").attr("x", 710).attr("y", 280).text("Poland has the smallest increase in population.").style("font-size", "16px").attr("font-weight", "bold").attr("font-family", "sans-serif").call(wrap, 150)
+	.append("text").attr("x", 610).attr("y", 250).text("Poland has the smallest").style("font-size", "16px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("text").attr("x", 610).attr("y", 280).text("increase in population.").style("font-size", "16px").attr("font-weight", "bold").attr("font-family", "sans-serif")
 	svg.append("g")
 	.append("path").attr("d", "M 760 410 L 710 300").style("stroke-width", 1).style("stroke", "black")
 	;
