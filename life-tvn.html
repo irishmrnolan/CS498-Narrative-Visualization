@@ -75,7 +75,6 @@ a.scene2:hover, a.scene2:active {
     <meta charset="UTF-8">
     <title> Life Expectancy 1970 vs. 2015 </title>
     <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
 </head>
 <body bgcolor="#fff">
     <center>
@@ -138,7 +137,19 @@ d3.csv("../life-firstlast.csv", function(data) {
   svg.append("g")
 	.append("rect").attr("x", 425).attr("y",500).attr("width", 20).attr("height", 20).style("fill", '#ED9C18')
   svg.append("g")
-	.append("text").attr("x", 450).attr("y", 510).text("2015").style("font-size", "15px").attr("alignment-baseline","middle");
+	.append("text").attr("x", 450).attr("y", 510).text("2015").style("font-size", "15px").attr("alignment-baseline","middle")
+  svg.append("g")
+	.append("text").attr("x", 50).attr("y", 30).text("Australia went from").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("text").attr("x", 50).attr("y", 45).text("3rd highest to highest.").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("path").attr("d", "M 100 50 L 75 75").style("stroke-width", 1).style("stroke", "black")
+	svg.append("g")
+	.append("text").attr("x", 300).attr("y", 70).text("Dominican Republic had the 2nd highest increase").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("text").attr("x", 300).attr("y", 85).text("but still has the lowest life expectancy.").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("path").attr("d", "M 350 90 L 220 125").style("stroke-width", 1).style("stroke", "black")	;
 	
 
     // Another scale for subgroup position?
@@ -190,40 +201,7 @@ d3.csv("../life-firstlast.csv", function(data) {
               .text("Years");
 			  
 			  
-	const annotations = [
-        {
-          note: {
-            title: "Australia went from 3rd highest to highest.",
-            wrap: 150
-          },
-          connector: {
-            end: "arrow"
-          },
-          x: 75,
-          y: 75,
-          dx: 25,
-          dy: -25
-        },{
-          note: {
-            title: "Dominican Republic had the 2nd highest increase but still has the lowest life expectancy.",
-            wrap: 150
-          },
-          connector: {
-            end: "arrow",
-          },
-          x: 220,
-          y: 125,
-          dx: 50,
-          dy: -35
-        }].map(function(d){ d.color = "#000000"; return d})
-
-    const makeAnnotations = d3.annotation()
-         .type(d3.annotationLabel)
-         .annotations(annotations)
-
-    svg .append("g")
-        .attr("class", "annotation-group")
-        .call(makeAnnotations)
+	
 
 
 </script>	
