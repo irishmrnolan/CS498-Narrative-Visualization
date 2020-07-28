@@ -75,7 +75,6 @@ a.scene2:hover, a.scene2:active {
     <meta charset="UTF-8">
     <title> Life Expectancy </title>
     <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
 </head>
 <body bgcolor="#fff">
     <center>
@@ -168,7 +167,23 @@ d3.csv("../life-trend.csv", function(data) {
 	svg.append("g")
 	.append("circle").attr("cx", 550).attr("cy",508).attr("r", 6).style("fill", '#03D4FA')
 	svg.append("g")
-	.append("text").attr("x", 557).attr("y", 510).text("USA").style("font-size", "15px").attr("alignment-baseline","middle");
+	.append("text").attr("x", 557).attr("y", 510).text("USA").style("font-size", "15px").attr("alignment-baseline","middle")
+	svg.append("g")
+	.append("circle").attr("cx", 660).attr("cy",190).attr("r", 6).style("stroke", "black").style("fill", "none")
+	svg.append("g")
+	.append("text").attr("x", 410).attr("y", 55).text("Thailand has the largest").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("text").attr("x", 410).attr("y", 70).text("increase in life expectancy.").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("path").attr("d", "M 510 75 L 660 184").style("stroke-width", 1).style("stroke", "black")
+	svg.append("g")
+	.append("circle").attr("cx", 381).attr("cy",350).attr("r", 6).style("stroke", "black").style("fill", "none")
+	svg.append("g")
+	.append("text").attr("x", 235).attr("y", 275).text("Jamaica has the smallest").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("text").attr("x", 235).attr("y", 290).text("increase in life expectancy.").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("path").attr("d", "M 378 344 L 298 295").style("stroke-width", 1).style("stroke", "black");
 
   // color palette
   var res = sumstat.map(function(d){ return d.key }) // list of group names
@@ -210,40 +225,7 @@ d3.csv("../life-trend.csv", function(data) {
               .text("Years");
 			  
 			  
-	const annotations = [
-        {
-          note: {
-            title: "Thailand has the largest increase in life expectancy.",
-            wrap: 150
-          },
-          connector: {
-            end: "arrow"
-          },
-          x: 660,
-          y: 175,
-          dx: -150,
-          dy: -110
-        },{
-          note: {
-            title: "Jamaica has the smallest increase in life expectancy.",
-            wrap: 150
-          },
-          connector: {
-            end: "arrow",
-          },
-          x: 278,
-          y: 170,
-          dx: -75,
-          dy: -50
-        }].map(function(d){ d.color = "#000000"; return d})
-
-    const makeAnnotations = d3.annotation()
-         .type(d3.annotationLabel)
-         .annotations(annotations)
-
-    svg .append("g")
-        .attr("class", "annotation-group")
-        .call(makeAnnotations)
+	
 })
 
 </script>	
