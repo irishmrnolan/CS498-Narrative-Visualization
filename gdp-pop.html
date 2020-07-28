@@ -75,7 +75,6 @@ a.scene2:hover, a.scene2:active {
     <meta charset="UTF-8">
     <title> GDP vs. Population </title>
     <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
 </head>
 <body bgcolor="#fff">
     <center>
@@ -163,7 +162,17 @@ d3.csv("../gdp-pop.csv", function(data) {
 	svg.append("g")
 	.append("circle").attr("cx", 550).attr("cy",508).attr("r", 6).style("fill", '#03D4FA')
 	svg.append("g")
-	.append("text").attr("x", 557).attr("y", 510).text("USA").style("font-size", "15px").attr("alignment-baseline","middle");
+	.append("text").attr("x", 557).attr("y", 510).text("USA").style("font-size", "15px").attr("alignment-baseline","middle")
+	svg.append("g")
+	.append("text").attr("x", 135).attr("y", 200).text("We can see the lower populations represent").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("text").attr("x", 135).attr("y", 215).text("both high and low GDP per capita.").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("text").attr("x", 650).attr("y", 135).text("The United States is in").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("text").attr("x", 650).attr("y", 150).text("the top 3 of GDP per capita.").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("path").attr("d", "M 765 125 L 790 65").style("stroke-width", 1).style("stroke", "black");
 	
 
     // Color scale: give me a specie name, I return a color
@@ -202,40 +211,7 @@ d3.csv("../gdp-pop.csv", function(data) {
               .text("GDP");
 			  
 			  
-	const annotations = [
-        {
-          note: {
-            title: "We can see the lower populations represent both high and low GDP per capita.",
-            wrap: 150
-          },
-          connector: {
-            end: "arrow"
-          },
-          x: 135,
-          y: 200,
-          dx: 0,
-          dy: 0
-        },{
-          note: {
-            title: "The United States is in the top 3 of GDP per capita.",
-            wrap: 150
-          },
-          connector: {
-            end: "arrow",
-          },
-          x: 785,
-          y: 70,
-          dx: -25,
-          dy: 60
-        }].map(function(d){ d.color = "#000000"; return d})
-
-    const makeAnnotations = d3.annotation()
-         .type(d3.annotationLabel)
-         .annotations(annotations)
-
-    svg .append("g")
-        .attr("class", "annotation-group")
-        .call(makeAnnotations)
+	
 
 
 </script>	
