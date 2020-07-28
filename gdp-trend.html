@@ -75,7 +75,6 @@ a.scene2:hover, a.scene2:active {
     <meta charset="UTF-8">
     <title> GDP Trends </title>
     <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
 </head>
 <body bgcolor="#fff">
     <center>
@@ -168,7 +167,23 @@ d3.csv("../gdp-trend.csv", function(data) {
 	svg.append("g")
 	.append("circle").attr("cx", 550).attr("cy",508).attr("r", 6).style("fill", '#03D4FA')
 	svg.append("g")
-	.append("text").attr("x", 557).attr("y", 510).text("USA").style("font-size", "15px").attr("alignment-baseline","middle");
+	.append("text").attr("x", 557).attr("y", 510).text("USA").style("font-size", "15px").attr("alignment-baseline","middle")
+	svg.append("g")
+	.append("circle").attr("cx", 665).attr("cy",115).attr("r", 6).style("stroke", "black").style("fill", "none")
+	svg.append("g")
+	.append("text").attr("x", 550).attr("y", 39).text("Ireland has the largest").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("text").attr("x", 550).attr("y", 54).text("increase in GDP.").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("path").attr("d", "M 615 59 L 665 109").style("stroke-width", 1).style("stroke", "black")
+	svg.append("g")
+	.append("circle").attr("cx", 845).attr("cy",435).attr("r", 6).style("stroke", "black").style("fill", "none")
+	svg.append("g")
+	.append("text").attr("x", 650).attr("y", 255).text("Jamaica has the smallest").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("text").attr("x", 650).attr("y", 270).text("increase in GDP.").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("path").attr("d", "M 750 275 L 845 429").style("stroke-width", 1).style("stroke", "black");
 
   // color palette
   var res = sumstat.map(function(d){ return d.key }) // list of group names
@@ -210,40 +225,7 @@ d3.csv("../gdp-trend.csv", function(data) {
               .text("GDP");
 			  
 			  
-	const annotations = [
-        {
-          note: {
-            title: "Ireland has the largest increase in GDP.",
-            wrap: 150
-          },
-          connector: {
-            end: "arrow"
-          },
-          x: 660,
-          y: 110,
-          dx: -50,
-          dy: -50
-        },{
-          note: {
-            title: "Jamaica has the smallest increase in GDP.",
-            wrap: 150
-          },
-          connector: {
-            end: "arrow",
-          },
-          x: 845,
-          y: 435,
-          dx: -45,
-          dy: -165
-        }].map(function(d){ d.color = "#000000"; return d})
-
-    const makeAnnotations = d3.annotation()
-         .type(d3.annotationLabel)
-         .annotations(annotations)
-
-    svg .append("g")
-        .attr("class", "annotation-group")
-        .call(makeAnnotations)
+	
 })
 
 </script>	
