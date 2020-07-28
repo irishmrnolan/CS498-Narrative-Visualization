@@ -75,7 +75,6 @@ a.scene2:hover, a.scene2:active {
     <meta charset="UTF-8">
     <title> GDP vs. Life Expectancy </title>
     <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
 </head>
 <body bgcolor="#fff">
     <center>
@@ -163,7 +162,15 @@ d3.csv("../gdp-life.csv", function(data) {
 	svg.append("g")
 	.append("circle").attr("cx", 550).attr("cy",508).attr("r", 6).style("fill", '#03D4FA')
 	svg.append("g")
-	.append("text").attr("x", 557).attr("y", 510).text("USA").style("font-size", "15px").attr("alignment-baseline","middle");
+	.append("text").attr("x", 557).attr("y", 510).text("USA").style("font-size", "15px").attr("alignment-baseline","middle")
+	svg.append("g")
+	.append("text").attr("x", 200).attr("y", 200).text("For the most part, the lower").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("text").attr("x", 200).attr("y", 215).text("the GDP, the lower the life expectancy.").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("text").attr("x", 600).attr("y", 90).text("The higher GDP per capita seems").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif")
+	svg.append("g")
+	.append("text").attr("x", 600).attr("y", 105).text("to correlate with a higher life expectancy.").style("font-size", "15px").attr("font-weight", "bold").attr("font-family", "sans-serif");
 	
 
     // Color scale: give me a specie name, I return a color
@@ -202,40 +209,7 @@ d3.csv("../gdp-life.csv", function(data) {
               .text("Life Expectancy (Years)");
 			  
 			  
-	const annotations = [
-        {
-          note: {
-            title: "For the most part, the lower the GDP, the lower the life expectancy.",
-            wrap: 150
-          },
-          connector: {
-            end: "arrow"
-          },
-          x: 245,
-          y: 200,
-          dx: 0,
-          dy: 0
-        },{
-          note: {
-            title: "The higher GDP per capita seems to correlate with a higher life expectancy.",
-            wrap: 150
-          },
-          connector: {
-            end: "arrow",
-          },
-          x: 650,
-          y: 90,
-          dx: 0,
-          dy: 0
-        }].map(function(d){ d.color = "#000000"; return d})
 
-    const makeAnnotations = d3.annotation()
-         .type(d3.annotationLabel)
-         .annotations(annotations)
-
-    svg .append("g")
-        .attr("class", "annotation-group")
-        .call(makeAnnotations)
 
 
 </script>	
