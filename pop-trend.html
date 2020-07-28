@@ -91,7 +91,19 @@ a.scene2:hover, a.scene2:active {
         </p>
     </center>
     <div class="chart" id="chart">
-       
+    <defs>
+    <marker
+      id="arrow"
+      markerUnits="strokeWidth"
+      markerWidth="12"
+      markerHeight="12"
+      viewBox="0 0 12 12"
+      refX="6"
+      refY="6"
+      orient="auto">
+      <path d="M2,2 L10,6 L2,10 L6,6 L2,2" style="fill: #000000;"></path>
+    </marker>
+	</defs>   
     </div>
 	
 <script>
@@ -107,19 +119,7 @@ var margin = {top: 15, right: 60, bottom: 60, left: 75};
           .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-<defs>
-    <marker
-      id="arrow"
-      markerUnits="strokeWidth"
-      markerWidth="12"
-      markerHeight="12"
-      viewBox="0 0 12 12"
-      refX="6"
-      refY="6"
-      orient="auto">
-      <path d="M2,2 L10,6 L2,10 L6,6 L2,2" style="fill: #000000;"></path>
-    </marker>
- </defs>
+
 			
 //Read the data
 d3.csv("../pop-trend.csv", function(data) {
