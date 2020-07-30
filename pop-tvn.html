@@ -34,37 +34,18 @@ a.button2:hover, a.button2:active {
   color: black;
 }
 
-a.scene1:link, a.scene1:visited {
+a.trigger:link, a.trigger:visited {
   color: black;
   text-decoration: None;
 }
 
-a.scene1:hover, a.scene1:active {
+a.trigger:hover, a.trigger:active {
   text-decoration:underline;
-}
-
-a.scene2:link, a.scene2:visited {
-  color: black;
-  text-decoration: None;
-}
-
-a.scene2:hover, a.scene2:active {
-  text-decoration:underline;
-}
-
-.axis path,.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-.x.axis path {
-  display: none;
 }
 
 .chart {
-    max-width: 950px;
-    min-width: 304px;
+    max-width: 1000px;
+    min-width: 250px;
     margin: 0 auto;
     background-color: #f8f9fa;
 }
@@ -209,9 +190,9 @@ d3.csv("../pop-first-last.csv", function(data) {
         <p></p>
         <a class="button1" href="index.html" style="margin-right: 200px">Introduction</a>
         <font size="3" face="Arial Black">
-                <a class="scene2" href="pop-mvf.html">Pop Male vs Female</a>
+                <a class="trigger" href="pop-mvf.html">Pop Male vs Female</a>
                 |
-                <a class="scene2" href="pop-trend.html">Pop Trends</a>                
+                <a class="trigger" href="pop-trend.html">Pop Trends</a>                
             </font>
         <a class="button2" href="life-trend.html" style="margin-left: 200px" >Life Expectancy</a>
     </center>
