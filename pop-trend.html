@@ -34,21 +34,12 @@ a.button2:hover, a.button2:active {
   color: black;
 }
 
-a.scene1:link, a.scene1:visited {
+a.trigger:link, a.scene2:visited {
   color: black;
   text-decoration: None;
 }
 
-a.scene1:hover, a.scene1:active {
-  text-decoration:underline;
-}
-
-a.scene2:link, a.scene2:visited {
-  color: black;
-  text-decoration: None;
-}
-
-a.scene2:hover, a.scene2:active {
+a.trigger:hover, a.scene2:active {
   text-decoration:underline;
 }
 
@@ -260,9 +251,9 @@ d3.csv("../pop-trend.csv", function(data) {
         <p></p>
         <a class="button1" href="index.html" style="margin-right: 200px">Introduction</a>
         <font size="3" face="Arial Black">
-                <a class="scene2" href="pop-mvf.html">Pop Male vs Female</a>
+                <a class="trigger" href="pop-mvf.html">Pop Male vs Female</a>
                 |
-                <a class="scene2" href="pop-tvn.html">Pop 1970 vs 2015</a>                
+                <a class="trigger" href="pop-tvn.html">Pop 1970 vs 2015</a>                
             </font>
         <a class="button2" href="life-trend.html" style="margin-left: 200px" >Life Expectancy</a>
     </center>
